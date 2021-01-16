@@ -102,6 +102,19 @@
         }
         return $arrDesc; 
       }
+
+
+      public function selectDescQuery() {
+        $sql = "SELECT * FROM `tbl_product_description`";
+        $result = $this->conn->query($sql);
+        $arr=array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                array_push($arr,$row);
+            }
+        }
+        return $arr;
+    }
         
     }
 

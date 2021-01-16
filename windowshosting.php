@@ -4,18 +4,19 @@
  
  <?php
 	$id = $_GET['id'];
-	echo $id;
+	// echo $id;
 
 	$myObj = new Product();
 
-	$d1 = $myObj->viewProdQuery();
-	echo "<pre>";
-	print_r($d1);
-	echo "</pre>";
+	$d1 = $myObj->selectDescQuery();
+	// echo "<pre>";
+	// print_r($d1);
+	// echo "</pre>";
 
  ?>
 
 	<!---header--->
+
 		<!---singleblog--->
 				<div class="content">
 					<div class="linux-section">
@@ -42,181 +43,54 @@
 					<div class="tab-prices">
 						<div class="container">
 							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-								<!-- <ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
-									<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">IN Hosting</a></li>
-									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">US Hosting</a></li>
-									</ul> -->
+								
 								<div id="myTabContent" class="tab-content">
 									<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 										<div class="linux-prices">
-											<div class="col-md-3 linux-price">
-												<div class="linux-top">
+											
 
 
 												<?php
 													foreach($d1 as $key1=>$val1){
 														$decode1 = json_decode($val1['description'], true);
-														if($id == $val['prod_parent_id']){
-														echo "<h4>Standard</h4>
+														if($val1['prod_id']==$id ){
+														echo "
+														<div class='col-md-3 linux-price'>
+														<div class='linux-top'>
+														<h4>Standard</h4>
 														</div>
 														<div class='linux-bottom'>
 															<h5>"  .$val1['mon_price']. "₹.<span class='month'>per month</span></h5>
-															<h5>"  .$val1['annual_price']. "₹.<span class='month'>per month</span></h5>
+															<h5>"  .$val1['annual_price']. "₹.<span class='month'>per year</span></h5>
 															<h6>Single Domain</h6>
 															<ul>
 															<li><strong>".$decode1['webSpace']."GB</strong> Web Space</li>
 															<li><strong>".$decode1['bandwidth']."GB</strong> Bandwidth</li>
-															<li><strong>".$decode1['mailbox']."GB</strong> Mailbox</li>
-															<li><strong>".$decode1['domain']."GB</strong> Free Domain</li>
-															<li><strong>".$decode1['support']."GB</strong> Language/Technology</li>
-															<li><strong>".$decode1['support']."GB</strong> Language/Technology</li>
+															<li><strong>".$decode1['mailbox']."</strong> Mailbox</li>
+															<li><strong>".$decode1['domain']."</strong> Free Domain</li>
+															<li><strong>".$decode1['support']."</strong> Language/Technology</li>
+															<li><strong>".$decode1['mailbox']."</strong> Mailbox</li>
 															<li><strong>location</strong> : <img src='images/india.png'></li>
 															</ul>
 															</div>
-															<a href='#'>buy now</a>";
+															<a data-id=".$val1['id']." class='addToCart'>buy now</a>
+															</div>";
 														}
 													}
 												
 												?>
 											</div>
-											<!-- <div class="col-md-3 linux-price">
-												<div class="linux-top">
-												<h4>Advanced</h4>
-												</div>
-												<div class="linux-bottom">
-													<h5>$279 <span class="month">per month</span></h5>
-													<h6>2 Domain</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/india.png"></li>
-													</ul>
-												</div>
-												<a href="#">buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top">
-												<h4>Business</h4>
-												</div>
-												<div class="linux-bottom">
-													<h5>$279 <span class="month">per month</span></h5>
-													<h6>3 Domain</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/india.png"></li>
-													</ul>
-												</div>
-												<a href="#">buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top">
-												<h4>Pro</h4>
-												</div>
-												<div class="linux-bottom">
-													<h5>$259 <span class="month">per month</span></h5>
-													<h6>Unlimited Domains</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/india.png"></li>
-													</ul>
-												</div>
-												<a href="#">buy now</a>
-											</div> -->
+
+											
 											<div class="clearfix"></div>
 										</div>
 									</div>
-									<!-- <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-										<div class="linux-prices">
-											<div class="col-md-3 linux-price">
-												<div class="linux-top us-top">
-												<h4>Standard</h4>
-												</div>
-												<div class="linux-bottom us-bottom">
-													<h5>$259 <span class="month">per month</span></h5>
-													<h6>Single Domain</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/us.png"></li>
-													</ul>
-												</div>
-												<a href="#" class="us-button">buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top us-top">
-												<h4>Advanced</h4>
-												</div>
-												<div class="linux-bottom us-bottom">
-													<h5>$359 <span class="month">per month</span></h5>
-													<h6>2 Domains</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/us.png"></li>
-													</ul>
-												</div>
-												<a href="#" class="us-button">buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top us-top">
-												<h4>Business</h4>
-												</div>
-												<div class="linux-bottom us-bottom">
-													<h5>$539 <span class="month">per month</span></h5>
-													<h6>3 Domains</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/us.png"></li>
-													</ul>
-												</div>
-												<a href="#" class="us-button">buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top us-top">
-												<h4>Pro</h4>
-												</div>
-												<div class="linux-bottom us-bottom">
-													<h5>$639 <span class="month">per month</span></h5>
-													<h6>Unlimited Domains</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/us.png"></li>
-													</ul>
-												</div>
-												<a href="#" class="us-button">buy now</a>
-											</div>
-											<div class="clearfix"></div>
-										</div>
-									</div> -->
+									
 								</div>
 							</div>
 						</div>
 					</div>
+	<div id="display"></div>
 					<!-- clients -->
 				<div class="clients">
 					<div class="container">
@@ -306,5 +180,26 @@
 
 				</div>
 			
-			
 <?php include 'footer.php' ?>
+
+
+<script>
+	$(document).ready(function(){
+		$('.addToCart').click(function(){
+			var buyId = $(this).data('id');
+			console.log(buyId);
+			$.ajax({
+				url:'addToCart.php',
+				method:'POST',
+				data:{buyId:buyId},
+				success:function(data){
+					$('#display').html(data);
+				}
+			})
+		})
+	}) 
+</script>
+
+
+
+<!-- https://www.google.com/basepages/producttype/taxonomy.en-us.txt -->

@@ -1,5 +1,5 @@
 <?php
-	include 'adminDash/products/Product.php';
+	include_once 'adminDash/products/Product.php';
 ?>
 
 
