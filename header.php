@@ -1,5 +1,9 @@
 <?php
+session_start();
 	include_once 'adminDash/products/Product.php';
+
+	$cart = $_SESSION['cart'];
+	$count = count($cart);
 ?>
 
 
@@ -86,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="pricing.php">Pricing</a></li>
 								<li><a href="blog.php">Blog</a></li>
 								<li><a href="contact.php">Contact</a></li>
-								<li><a href="cart.php"><i class="fa fa-cart-plus" style="font-size:24px"></i></a></li>
+								<li><a href="cart.php"><i class="fa fa-cart-plus" style="font-size:24px"><span class="badge badge-secondary"><?php if(isset($_SESSION['cart'])){ echo $count; }?></span></i></a></li>
 								<li><a href="login.php">Login</a></li>
 							</ul>
 									  

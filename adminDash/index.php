@@ -3,7 +3,7 @@
 
 // For Log Out
   if(!isset($_SESSION['user'])){
-    header("location:../main");
+    header("location:../index.html");
   }
   $admin = $_SESSION['user'];
   include 'dbConn.php';
