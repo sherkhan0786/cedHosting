@@ -20,6 +20,7 @@
             }else{
                 $_SESSION['user'] = $email;
                 echo "Hello user : ".$_SESSION['user'];
+                header('location:cart.php');
             }
         }
         else{

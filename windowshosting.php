@@ -194,6 +194,7 @@
 				data:{buyId:buyId},
 				success:function(data){
 					$('#display').html(data);
+					alert("product added to cart");
 				}
 			})
 		})
@@ -201,5 +202,3 @@
 </script>
 
 
-
-<!-- https://www.google.com/basepages/producttype/taxonomy.en-us.txt -->
