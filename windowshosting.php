@@ -18,78 +18,75 @@
 	<!---header--->
 
 		<!---singleblog--->
-				<div class="content">
-					<div class="linux-section">
-						<div class="container">
-							<div class="linux-grids">
-								<div class="col-md-8 linux-grid">
-								<h2>Windows Hosting</h2>
-								<ul>
-									<li>Disk Space, Bandwidth and Email Addresses</li>
-									<li><span>99.9% uptime </span> with dedicated 24/7 technical support</li>
-									<li><span>Powered by </span> CloudLinux, cPanel (demo), Apache, MySQL, PHP, Ruby & more</li>
-									<li><span>Launch  </span> your business with Rs. 2000* Google AdWords Credit *</li>
-									<li><span>30 day </span> Money Back Guarantee</li>
-								</ul>
-									<a href="#">view plans</a>
+<div class="content">
+<div class="linux-section">
+	<div class="container">
+		<div class="linux-grids">
+			<div class="col-md-8 linux-grid">
+			<h2>Windows Hosting</h2>
+			<ul>
+				<li>Disk Space, Bandwidth and Email Addresses</li>
+				<li><span>99.9% uptime </span> with dedicated 24/7 technical support</li>
+				<li><span>Powered by </span> CloudLinux, cPanel (demo), Apache, MySQL, PHP, Ruby & more</li>
+				<li><span>Launch  </span> your business with Rs. 2000* Google AdWords Credit *</li>
+				<li><span>30 day </span> Money Back Guarantee</li>
+			</ul>
+				<a href="#">view plans</a>
+			</div>
+			<div class="col-md-4 linux-grid1">
+				<img src="images/window.png" class="img-responsive" alt=""/>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<div class="tab-prices">
+	<div class="container">
+		<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+			
+			<div id="myTabContent" class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+					<div class="linux-prices">
+						<?php
+							foreach($d1 as $key1=>$val1){
+								$decode1 = json_decode($val1['description'], true);
+								if($val1['prod_id']==$id ){
+								echo "
+								<div class='col-md-3 linux-price'>
+								<div class='linux-top'>
+								<h4>Standard</h4>
 								</div>
-								<div class="col-md-4 linux-grid1">
-									<img src="images/window.png" class="img-responsive" alt=""/>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-prices">
-						<div class="container">
-							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-								
-								<div id="myTabContent" class="tab-content">
-									<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-										<div class="linux-prices">
-											
-
-
-												<?php
-													foreach($d1 as $key1=>$val1){
-														$decode1 = json_decode($val1['description'], true);
-														if($val1['prod_id']==$id ){
-														echo "
-														<div class='col-md-3 linux-price'>
-														<div class='linux-top'>
-														<h4>Standard</h4>
-														</div>
-														<div class='linux-bottom'>
-															<h5>"  .$val1['mon_price']. "₹.<span class='month'>per month</span></h5>
-															<h5>"  .$val1['annual_price']. "₹.<span class='month'>per year</span></h5>
-															<h6>Single Domain</h6>
-															<ul>
-															<li><strong>".$decode1['webSpace']."GB</strong> Web Space</li>
-															<li><strong>".$decode1['bandwidth']."GB</strong> Bandwidth</li>
-															<li><strong>".$decode1['mailbox']."</strong> Mailbox</li>
-															<li><strong>".$decode1['domain']."</strong> Free Domain</li>
-															<li><strong>".$decode1['support']."</strong> Language/Technology</li>
-															<li><strong>".$decode1['mailbox']."</strong> Mailbox</li>
-															<li><strong>location</strong> : <img src='images/india.png'></li>
-															</ul>
-															</div>
-															<a data-id=".$val1['id']." class='addToCart'>buy now</a>
-															</div>";
-														}
-													}
-												
-												?>
-											</div>
-
-											
-											<div class="clearfix"></div>
-										</div>
+								<div class='linux-bottom'>
+									<h5>"  .$val1['mon_price']. "₹.<span class='month'>per month</span></h5>
+									<h5>"  .$val1['annual_price']. "₹.<span class='month'>per year</span></h5>
+									<h6>Single Domain</h6>
+									<ul>
+									<li><strong>".$decode1['webSpace']."GB</strong> Web Space</li>
+									<li><strong>".$decode1['bandwidth']."GB</strong> Bandwidth</li>
+									<li><strong>".$decode1['mailbox']."</strong> Mailbox</li>
+									<li><strong>".$decode1['domain']."</strong> Free Domain</li>
+									<li><strong>".$decode1['support']."</strong> Language/Technology</li>
+									<li><strong>".$decode1['mailbox']."</strong> Mailbox</li>
+									<li><strong>location</strong> : <img src='images/india.png'></li>
+									</ul>
 									</div>
-									
-								</div>
-							</div>
+									<a data-id=".$val1['id']." class='addToCart'>buy now</a>
+									</div>";
+								}
+							}
+						
+						?>
 						</div>
+
+						
+						<div class="clearfix"></div>
 					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
 	<div id="display"></div>
 					<!-- clients -->
 				<div class="clients">
